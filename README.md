@@ -221,4 +221,4 @@ El proceso muestra una tabla con el resultado de cada operación y termina con c
 
 La API está desplegada en Render. Las variables de entorno se configuran en el panel de Render (sección *Environment*), no en el repositorio. Comando de build: `npm install`. Comando de inicio: `npm start`.
 
-URL pública: _(completar al desplegar)_
+URL pública: URL pública: https://breeze-lab-api.onrender.com
