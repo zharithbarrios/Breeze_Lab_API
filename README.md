@@ -8,7 +8,7 @@ API REST de una tienda de aparatos electrónicos, construida con **Node.js**, **
 Breeze_Lab_API/
 ├── index.js                 # Servidor Express y registro de rutas
 ├── package.json
-├── .env            # Plantilla de variables de entorno
+├── .env.example     # Plantilla de variables de entorno
 ├── scripts/
 │   └── probar-crud.js        # Pruebas CRUD automatizadas de las ocho rutas
 └── src/
@@ -215,7 +215,7 @@ Ejecuta todas las comprobaciones CRUD de las ocho rutas en un solo comando:
 npm run test:crud
 ```
 
-El script inicia la API en un puerto local temporal y utiliza la conexión MySQL configurada en `.env`. Consulta las listas y registros existentes, y crea registros temporales únicos en orden de dependencias. Al finalizar, elimina únicamente los registros identificados por las marcas únicas generadas por esa ejecución, en orden inverso; si un `DELETE` de la API falla, intenta una limpieza limitada a esas marcas y omite el borrado de padres que aún tengan registros relacionados. No muestra credenciales ni contraseñas. Se recomienda ejecutarlo contra una base de pruebas o desarrollo.
+El script inicia la API en un puerto local temporal y utiliza la conexión MySQL configurada en `.env`. Consulta las listas y registros existentes, y crea registros temporales únicos en orden de dependencias. Al finalizar, elimina únicamente los registros identificados por las marcas únicas generadas por esa ejecución, en orden inverso; si un `DELETE` de la API falla, intenta una limpieza limitada a esas marcas y omite el borrado de padres que aún tengan registros relacionados. No muestra credenciales ni contraseñas. No muestra credenciales ni contraseñas. Solo elimina los registros que él mismo creó.
 
 El proceso muestra una tabla con el resultado de cada operación y termina con código distinto de cero si alguna prueba falla. Si una tabla está vacía o falta una dependencia temporal, la operación correspondiente aparece como `OMITIDA`.
 
@@ -223,4 +223,4 @@ El proceso muestra una tabla con el resultado de cada operación y termina con c
 
 La API está desplegada en Render. Las variables de entorno se configuran en el panel de Render (sección *Environment*), no en el repositorio. Comando de build: `npm install`. Comando de inicio: `npm start`.
 
-URL pública: URL pública: https://breeze-lab-api.onrender.com
+URL pública: https://breeze-lab-api.onrender.com

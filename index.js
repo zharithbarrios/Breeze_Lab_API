@@ -33,27 +33,6 @@ app.use('/api/pedidos', pedidoRoutes);
 app.use('/api/detalle-pedido', detallePedidoRoutes);
 app.use('/api/envios', envioRoutes);
 
-const db = require('./src/config/dbConfig');
-
-app.get('/api/diagnostico-db', (req, res) => {
-    db.query(
-        'SELECT DATABASE() AS base_datos, @@hostname AS servidor',
-        (err, results) => {
-            if (err) {
-                return res.status(500).json({
-                    ok: false,
-                    error: err.message
-                });
-            }
-
-            res.status(200).json({
-                ok: true,
-                conexion: results[0]
-            });
-        }
-    );
-});
-
 // Ruta no encontrada
 app.use((req, res) => {
     res.status(404).json({ ok: false, error: 'Ruta no encontrada' });
