@@ -8,11 +8,13 @@ API REST de una tienda de aparatos electrónicos, construida con **Node.js**, **
 Breeze_Lab_API/
 ├── index.js                 # Servidor Express y registro de rutas
 ├── package.json
-├── .env.example             # Plantilla de variables de entorno
+├── .env            # Plantilla de variables de entorno
 ├── scripts/
 │   └── probar-crud.js        # Pruebas CRUD automatizadas de las ocho rutas
 └── src/
     ├── config/dbConfig.js   # Conexión a MySQL (lee las variables de entorno)
+    ├── database/
+    │   └── breeze_lab.sql   # Script de la base de datos
     ├── models/              # Consultas SQL de cada tabla
     ├── controllers/         # Validación, respuestas JSON y códigos HTTP
     ├── routes/              # Rutas de cada tabla
@@ -28,8 +30,8 @@ Breeze_Lab_API/
 npm install
 ```
 
-3. Crear el archivo `.env` a partir de `.env.example` y completar los valores.
-4. Tener creada la base de datos con el script `breeze_lab.sql`.
+3. Crear el archivo `.env` en la raíz del proyecto y configurar las variables de entorno.
+4. Tener creada la base de datos e importar el script `breeze_lab.sql`.
 
 ## Variables de entorno
 
@@ -75,7 +77,7 @@ Todas las respuestas son JSON con esta estructura:
 
 - `PUT` actualiza el registro completo: se deben enviar los campos obligatorios. Los campos opcionales con valor por defecto (por ejemplo `estado` o `stock`) conservan su valor actual si no se envían.
 - Las fechas se envían como `AAAA-MM-DD` o `AAAA-MM-DD HH:MM:SS`.
-- Las contraseñas de `clientes` se envían en el campo `contrasena` y se guardan cifradas con bcrypt. Nunca se devuelven en las respuestas.
+- Las contraseñas de `clientes` se envían en el campo `contrasena` y se almacenan mediante hash con bcrypt. Nunca se devuelven en las respuestas.
 - Los filtros se envían como parámetros de consulta, por ejemplo `GET /api/pedidos?estado=Enviado&cliente=3`.
 
 ## Endpoints
