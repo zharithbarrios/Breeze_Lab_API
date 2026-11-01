@@ -16,6 +16,17 @@
     "cors": "^2.8.6",
     "dotenv": "^18.0.9",
     "express": "^5.3.0",
+    "mysql": "^2.18.1",
     "mysql2": "^3.24.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zharithbarrios/Breeze_Lab_API.git"
+  },
+  "author": "",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/zharithbarrios/Breeze_Lab_API/issues"
+  },
+  "homepage": "https://github.com/zharithbarrios/Breeze_Lab_API#readme"
 }
